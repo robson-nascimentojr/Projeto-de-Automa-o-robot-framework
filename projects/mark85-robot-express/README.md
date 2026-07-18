@@ -1,20 +1,20 @@
 # Mark85 Robot Express
 
-Projeto de automacao de testes end-to-end para o Mark85, uma aplicacao web de gerenciamento de tarefas.
+Projeto de automação de testes end-to-end para o Mark85, uma aplicação web de gerenciamento de tarefas.
 
-Este repositorio foi organizado para validar os principais fluxos de cadastro, login e disponibilidade da aplicacao usando Robot Framework, Browser Library e apoio direto no banco MongoDB para preparacao de massa de testes.
+Este repositório foi organizado para validar os principais fluxos de cadastro, login e disponibilidade da aplicação usando Robot Framework, Browser Library e apoio direto no banco MongoDB para preparação de massa de testes.
 
-## Creditos e autoria
+## Créditos e autoria
 
-O produto Mark85, incluindo frontend e backend, e um projeto criado por Fernando Papito, professor de automaçao e referencia na comunidade de QA.
+O produto Mark85, incluindo backend e frontend, é um projeto criado por Fernando Papito, professor de automação e referência na comunidade de QA.
 
-A autoria deste repositorio esta na automacao de testes: os cenarios, suites Robot, Page Objects e apoio de execucao foram desenvolvidos pelo autor deste repositorio como pratica de automacao.
+A autoria deste repositório está na automação de testes: os cenários, suítes Robot, Page Objects e apoio de execução foram desenvolvidos pelo autor deste repositório como prática de automação.
 
-Este projeto nao reivindica autoria sobre a aplicacao Mark85. Ele documenta e executa testes automatizados sobre a aplicacao criada pelo Fernando Papito.
+Este projeto não reivindica autoria sobre a aplicação Mark85. Ele documenta e executa testes automatizados sobre a aplicação criada pelo Fernando Papito.
 
-## Visao geral
+## Visão geral
 
-O workspace possui tres partes principais:
+O workspace possui três partes principais:
 
 ```text
 apps/
@@ -23,10 +23,10 @@ apps/
     web/                 frontend web do Mark85 servido por Express
 
 projects/
-  mark85-robot-express/  projeto de automacao com Robot Framework
+  mark85-robot-express/  projeto de automação com Robot Framework
 ```
 
-A automacao considera a aplicacao rodando localmente nestes enderecos:
+A automação considera a aplicação rodando localmente nestes endereços:
 
 ```text
 Frontend: http://localhost:3000
@@ -44,49 +44,49 @@ Backend:  http://localhost:3333
 - Express
 - MongoDB Atlas
 
-## Estrutura da automacao
+## Estrutura da automação
 
 ```text
 mark85-robot-express/
   tests/
-    online.robot         smoke test para validar se o webapp esta online
-    signup.robot         cenarios de cadastro de usuario
-    login.robot          cenarios de login
+    online.robot         smoke test para validar se o webapp está online
+    signup.robot         cenários de cadastro de usuário
+    login.robot          cenários de login
 
   resources/
     PageObjects/
       cadastro.page.robot
       login.page.robot
     libs/
-      database.py        keywords Python para preparar/remover usuarios no MongoDB
+      database.py        keywords Python para preparar/remover usuários no MongoDB
 
-  results/               relatorios gerados pelo Robot Framework
-  logs/                  logs de execucoes anteriores
-  browser/               evidencias e screenshots geradas durante execucoes
+  results/               relatórios gerados pelo Robot Framework
+  logs/                  logs de execuções anteriores
+  browser/               evidências e screenshots geradas durante execuções
 ```
 
-## Cenarios cobertos
+## Cenários cobertos
 
 ### Disponibilidade
 
-- Validar que o webapp esta online.
-- Validar o titulo da pagina: `Mark85 by QAx`.
+- Validar que o webapp está online.
+- Validar o título da página: `Mark85 by QAx`.
 
 ### Cadastro
 
 - Cadastro com sucesso.
-- Tentativa de cadastro com usuario duplicado.
+- Tentativa de cadastro com usuário duplicado.
 - Cadastro com nome vazio.
 - Cadastro com e-mail vazio.
 - Cadastro com senha vazia.
-- Cadastro com todos os campos obrigatorios vazios.
+- Cadastro com todos os campos obrigatórios vazios.
 
 ### Login
 
 - Login com sucesso.
-- Login com credenciais invalidas.
+- Login com credenciais inválidas.
 
-## Pre-requisitos
+## Pré-requisitos
 
 Antes de rodar os testes, instale:
 
@@ -94,11 +94,11 @@ Antes de rodar os testes, instale:
 - Python 3
 - Robot Framework
 - Browser Library
-- MongoDB Atlas acessivel pela aplicacao
+- MongoDB Atlas acessível pela aplicação
 
-No PowerShell, se o comando `npm` estiver bloqueado por politica de execucao, use `npm.cmd`.
+No PowerShell, se o comando `npm` estiver bloqueado por política de execução, use `npm.cmd`.
 
-## Instalar dependencias da API
+## Instalar dependências da API
 
 Na raiz do projeto:
 
@@ -107,14 +107,14 @@ cd C:\ProjetoQAmark85\apps\mark85\api
 npm.cmd install
 ```
 
-## Instalar dependencias do frontend
+## Instalar dependências do frontend
 
 ```powershell
 cd C:\ProjetoQAmark85\apps\mark85\web
 npm.cmd install
 ```
 
-## Preparar ambiente Python da automacao
+## Preparar ambiente Python da automação
 
 ```powershell
 cd C:\ProjetoQAmark85\projects\mark85-robot-express
@@ -124,7 +124,7 @@ pip install robotframework robotframework-browser robotframework-faker pymongo
 rfbrowser init
 ```
 
-## Subir a aplicacao localmente
+## Subir a aplicação localmente
 
 Abra um terminal para a API:
 
@@ -140,7 +140,7 @@ cd C:\ProjetoQAmark85\apps\mark85\web
 npm.cmd start
 ```
 
-Com os dois servicos em execucao, acesse:
+Com os dois serviços em execução, acesse:
 
 ```text
 http://localhost:3000
@@ -148,14 +148,14 @@ http://localhost:3000
 
 ## Executar os testes
 
-Dentro da pasta da automacao:
+Dentro da pasta da automação:
 
 ```powershell
 cd C:\ProjetoQAmark85\projects\mark85-robot-express
 robot -d results tests
 ```
 
-Executar uma suite especifica:
+Executar uma suíte específica:
 
 ```powershell
 robot -d results tests\signup.robot
@@ -171,9 +171,9 @@ robot -d results -i login-success tests
 robot -d results -i login-invalid tests
 ```
 
-## Relatorios
+## Relatórios
 
-Apos a execucao, o Robot Framework gera os principais artefatos em `results/`:
+Após a execução, o Robot Framework gera os principais artefatos em `results/`:
 
 ```text
 results/report.html
@@ -181,35 +181,35 @@ results/log.html
 results/output.xml
 ```
 
-Abra `report.html` para uma visao resumida da execucao e `log.html` para investigar cada passo dos testes.
+Abra `report.html` para uma visão resumida da execução e `log.html` para investigar cada passo dos testes.
 
-## Observacoes sobre os testes
+## Observações sobre os testes
 
-Os testes usam `headless=False` nos Page Objects, entao o navegador Chromium abre visualmente durante a execucao.
+Os testes usam `headless=False` nos Page Objects, então o navegador Chromium abre visualmente durante a execução.
 
-Para rodar em modo invisivel, altere `headless=False` para `headless=True` nos arquivos:
+Para rodar em modo invisível, altere `headless=False` para `headless=True` nos arquivos:
 
 ```text
 resources/PageObjects/cadastro.page.robot
 resources/PageObjects/login.page.robot
 ```
 
-A lib `resources/libs/database.py` manipula diretamente a collection `users` para limpar ou preparar massa de teste antes dos cenarios.
+A lib `resources/libs/database.py` manipula diretamente a collection `users` para limpar ou preparar massa de teste antes dos cenários.
 
 ## Cuidados antes de publicar no GitHub
 
-Antes de subir este projeto para um repositorio publico, revise:
+Antes de subir este projeto para um repositório público, revise:
 
-- Nao publicar credenciais reais de banco, tokens ou arquivos `.env`.
-- Nao versionar `node_modules/`.
-- Nao versionar ambientes virtuais Python, como `.venv/`.
-- Nao versionar caches, como `__pycache__/`.
-- Avaliar se os relatorios em `results/`, `logs/`, `log/` e screenshots em `browser/` devem ficar fora do repositorio.
+- Não publicar credenciais reais de banco, tokens ou arquivos `.env`.
+- Não versionar `node_modules/`.
+- Não versionar ambientes virtuais Python, como `.venv/`.
+- Não versionar caches, como `__pycache__/`.
+- Avaliar se os relatórios em `results/`, `logs/`, `log/` e screenshots em `browser/` devem ficar fora do repositório.
 
-Caso o repositorio seja publico, o ideal e mover qualquer string de conexao sensivel para variaveis de ambiente.
+Caso o repositório seja público, o ideal é mover qualquer string de conexão sensível para variáveis de ambiente.
 
-## Licenca e uso educacional
+## Licença e uso educacional
 
-Este material tem finalidade educacional e de pratica em automacao de testes.
+Este material tem finalidade educacional e de prática em automação de testes.
 
-A aplicacao Mark85 pertence ao projeto original do Fernando Papito. Os testes automatizados deste repositorio representam uma implementacao propria de validacao sobre essa aplicacao.
+A aplicação Mark85 pertence ao projeto original do Fernando Papito. Os testes automatizados deste repositório representam uma implementação própria de validação sobre essa aplicação.
