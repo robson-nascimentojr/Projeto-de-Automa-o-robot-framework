@@ -13,27 +13,27 @@ Login com sucesso
 
     Remove user from database    ${email}
 
-    Garantir que exista uma conta cadastrada com as crendiciais fornecidads
+    Dado que eu ja tenha efetuado o cadastro
 
-    Voltar para tela de login
+    E que volte para tela de login
+    
+    E devo ver o um titulo Faça seu login
 
-    Checkpoint página de login
+    Quando preencho os campos obrigatórios
 
-    Preencher campos obrigatórios
+    E clico no botao de login
 
-    Clicar no botao de login
-
-    Checkpoint página de tarefas
+    Entao devo ver a página de tarefas
 
 Login com crendenciais inválidas
     [Tags]    login-invalid
     Remove user from database    ${email}
 
-    Na página de login
+    Dado que eu esteja Na página de login
 
-    Preencher campo email e senha com dados inválidos
+    Quando preencho os campos email e senha com dados inválidos
 
-    Clicar no botao de login
+    E clico no botao de login
 
-    Validar mensagem de erro de crendenciais inválidas
+    Entao devo ver uma mensagem de erro
     
