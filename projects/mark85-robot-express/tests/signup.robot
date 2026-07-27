@@ -14,18 +14,14 @@ Cadastro com sucesso
 
     Remove user from database    ${email}
 
-    Start Session
+    Dado que estou na página de cadastro
 
-    Go To    http://localhost:3000/signup
+    Quando preencho os campos corretamente
     
-    #checkpoint
-    Checkpoint
+    E clico no botão de cadastro
     
-    Preencher Formulário de Cadastro
-    
-    Clicar botão de cadastro
+    Devo ver mensagem de sucesso
 
-    Validar mensagem de sucesso
 
 Cadastro com usuario duplicado
     [Tags]    dup
@@ -34,80 +30,74 @@ Cadastro com usuario duplicado
 
     Insert user into database    ${name}   ${email}   ${password}
 
-    Start Session
-
-    Go To    http://localhost:3000/signup
+    Dado que estou na página de cadastro
     
-
-    #checkpoint
-    Checkpoint
+    Quando preencho os campos com dados ja cadastrados
     
-    Preencher Formulário de Cadastro
-    
-   Clicar botão de cadastro
+    E clico no botão de cadastro
 
-    Validar mensagem de erro
+    Devo ver mensagem de erro
 
 Cadastro com nome vazio
     [tags]    signup-empty-name
     
     Remove user from database    ${email}
     
-    Start Session
-    Go To    http://localhost:3000/signup
-    
-    Checkpoint
+    Dado que estou na página de cadastro
 
-    Preencher Formulário de Cadastro com nome vazio
+    Quando preencho os campo de Cadastro com nome vazio
 
-    Clicar botão de cadastro
+    E clico no botão de cadastro
 
-    Validar mensagem de erro de nome vazio
+    Devo ver uma mensagem de erro no campo nome
 
 Cadastro com email vazio 
     [Tags]    signup-empty-email
     
     Remove user from database    ${email}
     
-    Start Session
-    Go To    http://localhost:3000/signup
-    
-    Checkpoint
+    Dado que estou na página de cadastro
 
-    Preencher Formulário de Cadastro com email vazio
+    Quando preencho o campo de Cadastro com email vazio
 
-    Clicar botão de cadastro
+    E clico no botão de cadastro
 
-    Validar mensagem de erro de email vazio
+    Devo ver uma mensagem de erro no campo email
 
 Cadastro com senha vazia
     [Tags]    signup-empty-password
     
     Remove user from database    ${email}
     
-    Start Session
-    Go To    http://localhost:3000/signup
-    
-    Checkpoint
+    Dado que estou na página de cadastro
 
-    Preencher Formulário de Cadastro com senha vazia
+    Quando preencho o campo de Cadastro com senha vazia
 
-    Clicar botão de cadastro
+    E clico no botão de cadastro
 
-    Validar mensagem de erro de senha vazia
+    Devo ver uma mensagem de erro no campo senha
 
 Cadastro com campos vazios
     [Tags]    signup-empty-fields
     
     Remove user from database    ${email}
     
-    Start Session
-    Go To    http://localhost:3000/signup
+    Dado que estou na página de cadastro
+
+    Quando preencho o campo de cadastro com todos os campos vazios
+
+    E clico no botão de cadastro
+
+    Devo ver as mensagens de erro de campos vazios
+
+Cadastro com senha menor que 6 digitos
+    [Tags]    singup-password-five
+    Remove user from database    ${email}
     
-    Checkpoint
+    Dado que estou na página de cadastro
 
-    Preencher Formulário com campos vazios
+    Quando preencho o campo senha com 5 digitos
 
-    Clicar botão de cadastro
+    E clico no botão de cadastro
 
-    Validar todas as mensagens de erro de campos vazios
+    Devo ver uma mensagem de erro pedindo para informar mais de 6 digitos 
